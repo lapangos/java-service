@@ -1,0 +1,10 @@
+@startuml
+[*] --> Initializing: Start Game
+Initializing --> RollingDice: Initialize Board and Players
+RollingDice --> MovingPlayer: Roll Dice
+MovingPlayer --> CheckingSnakesAndLadders: Move Player
+CheckingSnakesAndLadders --> RollingDice: No Snake or Ladder
+CheckingSnakesAndLadders --> MovingPlayer: Snake or Ladder Found
+MovingPlayer --> GameWon: Player Reaches End
+GameWon --> [*]: Announce Winner
+@enduml

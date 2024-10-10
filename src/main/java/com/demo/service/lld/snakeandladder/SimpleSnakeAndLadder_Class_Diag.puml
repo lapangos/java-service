@@ -1,0 +1,54 @@
+@startuml
+class Game {
+    - Board board
+    - List<Player> players
+    - GameStrategy strategy
+    + play()
+}
+
+class Board {
+    - int size
+    - List<Snake> snakes
+    - List<Ladder> ladders
+    + getSize()
+    + getSnakes()
+    + getLadders()
+}
+
+class Player {
+    - String name
+    - int position
+    + getName()
+    + getPosition()
+    + setPosition(int position)
+}
+
+class Snake {
+    - int head
+    - int tail
+    + getHead()
+    + getTail()
+}
+
+class Ladder {
+    - int start
+    - int end
+    + getStart()
+    + getEnd()
+}
+
+interface GameStrategy {
+    + play(Board board, List<Player> players)
+}
+
+class SimpleGameStrategy {
+    + play(Board board, List<Player> players)
+}
+
+Game *-- Board
+Game *-- "1..*" Player
+Game *-- GameStrategy
+Board *-- "0..*" Snake
+Board *-- "0..*" Ladder
+GameStrategy <|.. SimpleGameStrategy
+@enduml

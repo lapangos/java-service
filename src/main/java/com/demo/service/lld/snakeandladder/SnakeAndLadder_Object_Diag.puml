@@ -1,0 +1,34 @@
+@startuml
+object Game {
+    board: Board
+    players: List<Player>
+    strategy: GameStrategy
+}
+
+object Board {
+    size: int
+    snakes: List<Snake>
+    ladders: List<Ladder>
+}
+
+object Player {
+    name: String
+    position: int
+}
+
+object Snake {
+    head: int
+    tail: int
+}
+
+object Ladder {
+    start: int
+    end: int
+}
+
+Game *-- Board
+Game *-- "1..*" Player
+Board *-- "0..*" Snake
+Board *-- "0..*" Ladder
+
+@enduml

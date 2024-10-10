@@ -1,0 +1,29 @@
+@startuml
+actor User
+
+participant MainClass
+participant Game
+participant SimpleGameStrategy
+participant Board
+participant Player
+participant Snake
+participant Ladder
+
+User -> MainClass: main()
+MainClass -> Game: play()
+Game -> SimpleGameStrategy: play(board, players)
+SimpleGameStrategy -> Board: getSize()
+SimpleGameStrategy -> Player: getPosition()
+SimpleGameStrategy -> Player: setPosition(newPosition)
+SimpleGameStrategy -> Board: getSnakes()
+SimpleGameStrategy -> Snake: getHead()
+SimpleGameStrategy -> Snake: getTail()
+SimpleGameStrategy -> Board: getLadders()
+SimpleGameStrategy -> Ladder: getStart()
+SimpleGameStrategy -> Ladder: getEnd()
+SimpleGameStrategy -> Player: getName()
+SimpleGameStrategy -> Player: getPosition()
+SimpleGameStrategy -> Board: getSize()
+SimpleGameStrategy -> Player: getName()
+
+@enduml
